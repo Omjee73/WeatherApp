@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp - Professional Weather Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-cloud-sun"></i> WeatherApp</h1>
+            <p>Your Professional Weather Platform</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter any city name (e.g., New York, London, Tokyo)" class="search-input">
+                <button onclick="searchWeather()" class="search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button onclick="getCurrentLocation()" class="location-btn">
+                    <i class="fas fa-location-arrow"></i> Use My Location
+                </button>
+            </div>
+        </section>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message"></div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
+        </div>
+
+        <!-- Weather Display -->
+        <section class="weather-section">
+            <!-- Current Weather -->
+            <div class="weather-card main-weather" id="currentWeather">
+                <h2>Current Weather</h2>
+                <div class="weather-content">
+                    <div class="city-name" id="cityName">Search for a city</div>
+                    <div class="temperature" id="temperature">--°C</div>
+                    <div class="weather-icon" id="weatherIcon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="description" id="description">--</div>
+                </div>
+            </div>
+
+            <!-- Weather Details -->
+            <div class="weather-card details-weather">
+                <h3>Weather Details</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <span>Feels Like</span>
+                        <span id="feelsLike">--°C</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <span>Humidity</span>
+                        <span id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <span>Wind Speed</span>
+                        <span id="windSpeed">-- km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Visibility</span>
+                        <span id="visibility">-- km</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <span>Pressure</span>
+                        <span id="pressure">-- hPa</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-sun"></i>
+                        <span>UV Index</span>
+                        <span id="uvIndex">--</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forecast Section -->
+        <section class="forecast-section">
+            <div class="weather-card">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast items will be added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section class="favorites-section">
+            <div class="weather-card">
+                <div class="favorites-header">
+                    <h3>Favorite Cities</h3>
+                    <button onclick="addToFavorites()" class="add-favorite-btn">
+                        <i class="fas fa-plus"></i> Add Current City
+                    </button>
+                </div>
+                <div class="favorites-container" id="favoritesContainer">
+                    <p class="no-favorites">No favorite cities added yet</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 WeatherApp - Professional Weather Platform made by Omjee Gupta</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
